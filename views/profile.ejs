@@ -7,13 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <a class="px-3 py-2 m-6 bg-red-600 text-white text-xs rounded float-right" href="/logout">Logout</a>  
     <div class="w-full min-h-screen bg-slate-100 p-10">
-        
-        <h1 class="text-3xl font-bold text-gray-700 uppercase">Hello, <span class="text-emerald-700 underline"><%= user.name%></span></h1>
+        <h1 class="lg:text-3xl text-xl font-bold text-gray-700 uppercase">Hello, <span class="text-emerald-700 underline"><%= user.name%></span></h1>
 
         <!-- <button class="px-4 py-2 mt-4 bg-red-600 text-white rounded float-right mr-10" href="/logout">Logout</button> -->
-        <a class="px-4 py-2 mt-4 bg-red-600 text-white rounded float-right" href="/logout">Logout</a>
-        <div class="w-1/2">
+        
+        <div class="lg:w-1/2 w-full">
             <p class="mt-3 text-gray-800 text-lg font-medium border-y-2 shadow-inner p-4">You can create a new Post</p>
             <form class="mt-3" action="/post" method="post">
                 <textarea class="block resize-none w-3/4 border-2 bg-slate-200 shadow p-4 border-gray-400 rounded" name="content" id="" placeholder="Create a new post"></textarea>
@@ -22,20 +22,20 @@
         </div>
 
         <div class="posts mt-10">
-            <h1 class="text-xl uppercase text-gray-700 border p-3 w-1/2 text-center font-bold">My Posts</h1>
+            <h1 class="text-xl uppercase text-gray-700 border p-3 lg:w-1/2 w-full text-center font-bold">My Posts</h1>
 
             <div class="postcontainer mt-5 flex flex-wrap gap-8">
 
                 <% user.posts.reverse().forEach((post) => { %>
 
-                    <div class="post w-1/5 p-5 border-2 rounded border-gray-800">
+                    <div class="post lg:w-1/5 w-full p-5 border-2 rounded border-gray-800">
                         <h1 class="text-md uppercase text-blue-700 border-b-2 font-bold">@<%= user.username%></h1>
                         <p class="mt-3 text-justify"><%= post.content%></p>
                         <small class="text-gray-500"><%= post.likes.length %> Likes</small>
                         <div class="footer border-t-2 mt-2 text-sm flex gap-4 ">
                             <p class="date text-yellow-600"><%= post.date%></p>
                             <a class="text-blue-600" href="/like/<%= post._id%>">
-                                <% if(post.likes.indexOf(user.userid) !== -1){%>
+                                <% if(post.likes.indexOf(user.userid) == -1){%>
                                     Like
                                 <%}else{%>
                                     Unlike

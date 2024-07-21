@@ -8,7 +8,9 @@ const postSchema = mongoose.Schema({
     content: String,
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (date) => date.toLocaleDateString()
+
     },
     likes: [
         {
