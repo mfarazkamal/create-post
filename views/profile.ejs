@@ -35,7 +35,7 @@
                         <div class="footer border-t-2 mt-2 text-sm flex gap-4 ">
                             <p class="date text-yellow-600"><%= post.date%></p>
                             <a class="text-blue-600" href="/like/<%= post._id%>">
-                                <% if(post.likes.indexOf(user.userid) !== -1){%>
+                                <% if(post.likes.indexOf(user.userid) == -1){%>
                                     Like
                                 <%}else{%>
                                     Unlike
