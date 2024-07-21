@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update your Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-slate-100 p-10">
+        
+        <h1 class="text-3xl font-bold text-gray-700 uppercase">Hello, <span class="text-emerald-700 underline"></span></h1>
+
+        <a class="px-4 py-2 mt-4 bg-red-600 text-white rounded float-right" href="/logout">Logout</a>
+        <div class="w-1/2">
+            <p class="mt-3 text-gray-800 text-lg font-medium border-y-2 shadow-inner p-4">Edit your Post</p>
+            <form class="mt-3" action="/update/<%= post._id%>" method="post">
+                <textarea class="block resize-none w-3/4 border-2 bg-slate-200 shadow p-4 border-gray-400 rounded" name="content" id="" placeholder="Create a new post" ><%= post.content%></textarea>
+                <input class="px-4 py-2 mt-4 bg-yellow-400 text-black cursor-pointer rounded block" type="submit" value="Update Post">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
